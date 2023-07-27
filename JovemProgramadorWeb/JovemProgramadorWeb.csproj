@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\Home\Professor.cshtml.cs" />
+    <Compile Remove="Views\Home\Professores.cs" />
+    <Compile Remove="Views\Home\Professores.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Professor.cshtml" />
+    <Content Remove="Views\Home\Professores.cshtml" />
+  </ItemGroup>
+
+</Project>

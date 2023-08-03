@@ -1,0 +1,87 @@
+﻿<p class="lead">
+    Confira abaixo a lista dos Alunos:
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Código do Aluno</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Posição</th>
+            <th scope="col">CEP</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Abel</td>
+            <td>Ferreira</td>
+            <td>44</td>
+            <td>Técnico</td>
+            <td>88359-500</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-500"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Gustavo</td>
+            <td>Goméz</td>
+            <td>30</td>
+            <td>Zagueiro</td>
+            <td>88359-501</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-501"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Artur</td>
+            <td>Cabral</td>
+            <td>26</td>
+            <td>Atacante</td>
+            <td>88359-502</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-503"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Raphael</td>
+            <td>Veiga</td>
+            <td>27</td>
+            <td>Meio-Campista</td>
+            <td>88359-504</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-504"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Bia</td>
+            <td>Zanerato</td>
+            <td>23</td>
+            <td>Centro-Avante</td>
+            <td>88359-505</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-505"> Endereco</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-success">Adicionar Aluno</button>
+<button type="button" class="btn btn-danger">Remover Aluno</button>

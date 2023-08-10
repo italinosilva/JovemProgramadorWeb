@@ -27,13 +27,29 @@ namespace JovemProgramadorWeb.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     endereco = JsonSerializer.Deserialize<Endereco>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
+                    ViewData["MsgCerto"] = "Busca realizada com sucesso!";
+                }
+                else
+                {
+                    ViewData["MsgErro"] = "Erro na busca do endreço!";
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-            return View("Index");
+
+            return View("Endereco", endereco);
         }
+        public IActionResult AdicionarAluno()
+        {
+            return View();
+        }
+        public IActionResult ConfirmacaoCadastro()
+        {
+            ViewData["MsgCsdt"] = "Aluno(a) cadastrado(a) com sucesso!";
+
+            return View("AdicionarAluno");
+       }
     }
 }

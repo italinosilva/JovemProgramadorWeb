@@ -1,4 +1,25 @@
-﻿<p class="lead">
+﻿@if (ViewData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @ViewData["MsgErro"]
+    </div>
+}
+
+@if (ViewData["MsgCerto"] != null)
+{
+    <div class="alert-success">
+        @ViewData["MsgCerto"]
+    </div>
+}
+
+@if (ViewData["MsgCsdt"] != null)
+{
+    <div class="alert-success">
+        @ViewData["MsgCsdt"]
+    </div>
+}
+
+<p class="lead">
     Confira abaixo a lista dos Alunos:
 </p>
 
@@ -83,5 +104,10 @@
     </tbody>
 </table>
 
-<button type="button" class="btn btn-success">Adicionar Aluno</button>
+<div class="d-grid gap-2 d-md-block">
+    <a type="button" class="btn btn-success" asp-controller="Aluno" asp-action="AdicionarAluno" asp-route-cep="88359-505"> Adicionar Aluno</a> 
+</div>
+
+&nbsp;
+
 <button type="button" class="btn btn-danger">Remover Aluno</button>

@@ -1,4 +1,6 @@
-﻿@if (ViewData["MsgErro"] != null)
+﻿@model List<Aluno>
+
+@if (ViewData["MsgErro"] != null)
 {
     <div class="alert-danger">
         @ViewData["MsgErro"]
@@ -36,7 +38,28 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        @if (Model != null && Model.Any())
+        {
+            foreach (Aluno aluno in Model)
+            {
+                <tr>
+                    <td> @aluno.id</td>
+                    <td> @aluno.nome</td>
+                    <td> @aluno.sobrenome</td>
+                    <td> @aluno.idade</td>
+                    <td> @aluno.posicao</td>
+                    <td> @aluno.cep</td>
+                        <td>
+                            <div class="d-grid gap-2 d-md-block">
+                                <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
+                            </div>
+
+                        </td>
+
+                </tr>
+            }
+        }
+        @*<tr>
             <th scope="row">1</th>
             <td>Abel</td>
             <td>Ferreira</td>
@@ -100,7 +123,7 @@
                     <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88359-505"> Endereco</a>
                 </div>
             </td>
-        </tr>
+        </tr>*@
     </tbody>
 </table>
 

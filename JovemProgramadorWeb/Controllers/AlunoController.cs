@@ -45,16 +45,26 @@ namespace JovemProgramadorWeb.Controllers
 
             return View("Endereco", endereco);
         }
-        public IActionResult AdicionarAluno()
+
+        public IActionResult Adicionar(Aluno aluno)
         {
             return View();
         }
-        public IActionResult ConfirmacaoCadastro()
-        {
-            ViewData["MsgCsdt"] = "Aluno(a) cadastrado(a) com sucesso!";
 
-            return View("AdicionarAluno");
-       }
+        public IActionResult InserirAluno(Aluno aluno)
+        {
+           try
+            {
+                _alunoRepositorio.InserirAluno(aluno);
+            }
+            catch (Exception e)
+            {
+                TempData["MsgErro"] = "Erro ao inserir aluno";
+            }
+            TempData["MsgSucesso"] = "Aluno(a) inserido(a) com sucesso!";
+
+            return RedirectToAction("Index");
+        }
 
     }
 }

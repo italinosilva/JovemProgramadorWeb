@@ -1,6 +1,6 @@
 ﻿namespace JovemProgramadorWeb.Models
 {
-    public class Usuario
+    public class Login
     {
         public int id { get; set; }
         public string nome { get; set; }

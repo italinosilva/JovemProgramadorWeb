@@ -14,9 +14,11 @@ namespace JovemProgramadorWeb.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AlunoMapeamento());
+            modelBuilder.ApplyConfiguration(new LoginMapeamento());
+
         }
 
         public DbSet<Aluno> Aluno { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Login> Usuario { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace JovemProgramadorWeb.Data.Repositorio
         {
             _bancoContexto = bancoContexto;
         }
-        public Usuario ValidarUsuario(Usuario usuario)
+        public Login ValidarUsuario(Login login)
         {
-            return _bancoContexto.Usuario.FirstOrDefault(x => x.usuario == usuario.usuario && x.senha == usuario.senha);
+            return _bancoContexto.Usuario.FirstOrDefault(x => x.usuario == login.usuario && x.senha == login.senha);
         }
     }
 

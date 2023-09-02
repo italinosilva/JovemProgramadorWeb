@@ -4,9 +4,9 @@ using JovemProgramadorWeb.Models;
 
 namespace JovemProgramadorWeb.Data.Mapeamento
 {
-    public class LoginMapeamento : IEntityTypeConfiguration<Usuario>
+    public class LoginMapeamento : IEntityTypeConfiguration<Login>
     {
-        public void Configure(EntityTypeBuilder<Usuario> builder)
+        public void Configure(EntityTypeBuilder<Login> builder)
         {
             builder.ToTable("Usuario");
             builder.HasKey(t => t.id);

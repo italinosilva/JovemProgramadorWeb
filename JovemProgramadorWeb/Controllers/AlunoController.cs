@@ -51,24 +51,36 @@ namespace JovemProgramadorWeb.Controllers
         {
             return View();
         }
-        public IActionResult EditarAluno(Aluno id)
+        public IActionResult EditarAluno(Aluno aluno)
         {
             return View();
         }
 
         public IActionResult RemoverAluno(Aluno aluno)
         {
-               var pessoa = _alunoRepositorio.BuscarId(aluno.id);
+            try
+            {
+                _alunoRepositorio.RemoverAluno(aluno);
+            }
 
-                if (pessoa == null)
-                {
-                    TempData["MsgErroRemover"] = "Erro ao buscar o código do aluno";
-                    return RedirectToAction("Index");
-                }
+            catch
+            {
+                TempData["MsgErro"] = "Erro ao inserir aluno";
 
-                _alunoRepositorio.RemoverAluno(pessoa);
+            }
 
-            ViewData["AlunoRemovido"] = "Aluno(a) removido(a) com sucesso!";
+            //var pessoa = _alunoRepositorio.BuscarId(aluno.id);
+
+            // if (pessoa == null)
+            // {
+            //     TempData["MsgErroRemover"] = "Erro ao buscar o código do aluno";
+            //     return RedirectToAction("Index");
+            // }
+
+            // _alunoRepositorio.RemoverAluno(pessoa);
+
+            TempData["MsgSucesso"] = "Aluno(a) removido(a) com sucesso!";
+
 
             return RedirectToAction("Index");
             

@@ -32,5 +32,10 @@ namespace JovemProgramadorWeb.Data.Repositorio
             _bancoContexto.Aluno.Remove(aluno);
             _bancoContexto.SaveChanges();
         }
+
+        public void EditarAluno(Aluno aluno)
+        {
+
+        }
     }
 }

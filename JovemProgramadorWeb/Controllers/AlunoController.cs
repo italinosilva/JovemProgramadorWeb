@@ -1,6 +1,7 @@
 ﻿using JovemProgramadorWeb.Data.Repositorio.Interfaces;
 using JovemProgramadorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.ConstrainedExecution;
 using System.Text.Json;
 
 namespace JovemProgramadorWeb.Controllers
@@ -50,6 +51,33 @@ namespace JovemProgramadorWeb.Controllers
         {
             return View();
         }
+        public IActionResult EditarAluno(Aluno id)
+        {
+            return View();
+        }
+
+        public IActionResult RemoverAluno(Aluno aluno)
+        {
+               var pessoa = _alunoRepositorio.BuscarId(aluno.id);
+
+                if (pessoa == null)
+                {
+                    TempData["MsgErroRemover"] = "Erro ao buscar o código do aluno";
+                    return RedirectToAction("Index");
+                }
+
+                _alunoRepositorio.RemoverAluno(pessoa);
+
+            ViewData["AlunoRemovido"] = "Aluno(a) removido(a) com sucesso!";
+
+            return RedirectToAction("Index");
+            
+        }
+
+        public IActionResult Remover(int id)
+        {
+            return View();
+        }
 
         public IActionResult InserirAluno(Aluno aluno)
         {
@@ -57,7 +85,7 @@ namespace JovemProgramadorWeb.Controllers
             {
                 _alunoRepositorio.InserirAluno(aluno);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 TempData["MsgErro"] = "Erro ao inserir aluno";
             }
@@ -65,6 +93,5 @@ namespace JovemProgramadorWeb.Controllers
 
             return RedirectToAction("Index");
         }
-
     }
 }

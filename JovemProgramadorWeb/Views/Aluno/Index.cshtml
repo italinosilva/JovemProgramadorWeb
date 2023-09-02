@@ -27,10 +27,17 @@
     </div>
 }
 
-@if (TempData["MsgErro"] != null)
+@if (TempData["MsgErroRemover"] != null)
 {
     <div class="alert-success">
-        @ViewData["MsgErro"]
+        @ViewData["MsgErroRemover"]
+    </div>
+}
+
+@if (ViewData["AlunoRemovido"] != null)
+{
+    <div class="alert-danger">
+        @ViewData["AlunoRemovido"]
     </div>
 }
 
@@ -62,12 +69,21 @@
                     <td> @aluno.idade</td>
                     <td> @aluno.posicao</td>
                     <td> @aluno.cep</td>
-                        <td>
-                            <div class="d-grid gap-2 d-md-block">
-                                <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
-                            </div>
-
-                        </td>
+                    <td>
+                       <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-secondary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-danger" role="button" asp-controller="Aluno" asp-action="RemoverAluno" asp-route-cep="@aluno.id">Remover</a>
+                       </div>
+                    </td>
+                    <td>
+                       <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="EditarAluno" asp-route-cep="@aluno.id">Editar</a>
+                       </div>
+                    </td>
 
                 </tr>
             }
@@ -78,7 +94,3 @@
 <div class="d-grid gap-2 d-md-block">
     <a type="button" class="btn btn-success" asp-controller="Aluno" asp-action="Adicionar"> Adicionar Aluno</a> 
 </div>
-
-&nbsp;
-
-<button type="button" class="btn btn-danger">Remover Aluno</button>

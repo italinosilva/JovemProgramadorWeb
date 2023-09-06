@@ -11,7 +11,7 @@ namespace JovemProgramadorWeb.Data.Mapeamento
             builder.ToTable("Aluno");
             builder.HasKey(t => t.id);
             builder.Property(t => t.nome).HasColumnType("varchar(50)");
-            builder.Property(t => t.sobrenome).HasColumnType("sobrenome(50)");
+            builder.Property(t => t.sobrenome).HasColumnType("varchar(50)");
             builder.Property(t => t.idade).HasColumnType("int");
             builder.Property(t => t.posicao).HasColumnType("varchar(50)");
             builder.Property(t => t.cep).HasColumnType("varchar(20)");

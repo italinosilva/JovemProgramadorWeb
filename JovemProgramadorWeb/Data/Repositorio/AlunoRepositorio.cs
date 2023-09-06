@@ -29,13 +29,14 @@ namespace JovemProgramadorWeb.Data.Repositorio
         
         public void RemoverAluno(Aluno aluno)
         {
-            _bancoContexto.Aluno.Remove(aluno);
+            _bancoContexto.Aluno.RemoveRange(aluno);
             _bancoContexto.SaveChanges();
         }
 
         public void EditarAluno(Aluno aluno)
         {
-
+            _bancoContexto.Aluno.Update(aluno);
+            _bancoContexto.SaveChanges();
         }
     }
 }

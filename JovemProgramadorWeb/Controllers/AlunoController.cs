@@ -51,16 +51,25 @@ namespace JovemProgramadorWeb.Controllers
         {
             return View();
         }
-        public IActionResult EditarAluno(Aluno aluno)
+        public IActionResult EditarAluno(int id)
         {
-            return View();
+            Aluno aluno = _alunoRepositorio.BuscarId(id);
+            
+            if (aluno == null)
+            {
+                TempData["MsgErro"] = "Erro ao buscar aluno";
+
+            }
+
+            return View(aluno);
         }
 
         public IActionResult RemoverAluno(Aluno aluno)
         {
             try
             {
-                _alunoRepositorio.RemoverAluno(aluno);
+                var id = _alunoRepositorio.BuscarId(aluno.id);
+                _alunoRepositorio.RemoverAluno(id);
             }
 
             catch
@@ -86,9 +95,21 @@ namespace JovemProgramadorWeb.Controllers
             
         }
 
-        public IActionResult Remover(int id)
+        public IActionResult AlunoEditado(Aluno aluno)
         {
-            return View();
+            try
+            {
+                //var id = _alunoRepositorio.BuscarId(aluno.id);
+                _alunoRepositorio.EditarAluno(aluno);
+            }
+
+            catch (Exception)
+            {
+                TempData["MsgErro"] = "Erro ao editar aluno(a)!";
+            }
+            TempData["MsgSucesso"] = "Aluno(a) inserido(a) com sucesso!";
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult InserirAluno(Aluno aluno)

@@ -2,6 +2,12 @@
     Layout = "_layoutLogin";
 }
 
+@* <style>
+body {
+        background-image: url('https://i.pinimg.com/736x/51/d3/85/51d385b2d40f78849351fcbd3e32d8bb.jpg');
+}
+</style> *@
+
 @if (ViewData["MsgErro"] != null)
 {
     <div class="alert-danger">
@@ -27,18 +33,3 @@
         <button type="submit" class="btn btn-primary" type="button">ENTRAR</button>
     </div>
 </form>
-
-@*<form class="g-3" asp-controller="Login" asp-action="FazerLogin">
-
-    <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Usuário</label>
-        <input type="email" asp-for="usuario" class="form-control" id="inputEmail4" >
-        <label for="inputPassword4" class="form-label">Senha</label>
-        <input type="password" asp-for="senha" class="form-control" id="inputPassword4">
-    </div>
-
-    <div class="d-grid gap-2">
-        <button class="btn btn-primary col-1" role="button"> ENTRAR</button>
-    </div>
-
-</form>*@

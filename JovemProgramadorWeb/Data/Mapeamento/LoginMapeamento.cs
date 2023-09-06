@@ -10,10 +10,8 @@ namespace JovemProgramadorWeb.Data.Mapeamento
         {
             builder.ToTable("Usuario");
             builder.HasKey(t => t.id);
-            builder.Property(t => t.nome).HasColumnType("varchar(50)");
-            builder.Property(t => t.usuario).HasColumnType("varchar(15)");
-            builder.Property(t => t.senha).HasColumnType("varchar(30)");
-            builder.Property(t => t.cpf).HasColumnType("varchar(14)");
+            builder.Property(t => t.usuario).HasColumnType("varchar(50)");
+            builder.Property(t => t.senha).HasColumnType("varchar(50)");
         }
     }
 }

@@ -15,10 +15,13 @@ namespace JovemProgramadorWeb.Data
         {
             modelBuilder.ApplyConfiguration(new AlunoMapeamento());
             modelBuilder.ApplyConfiguration(new LoginMapeamento());
+            modelBuilder.ApplyConfiguration(new ProfessorMapeamento());
 
         }
 
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Login> Usuario { get; set; }
+        public DbSet<Professor> Professor { get; set; }
+
     }
 }
